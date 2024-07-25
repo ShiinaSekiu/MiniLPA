@@ -82,6 +82,7 @@ if ($NativeWayland)
 if ($NativeExecutableType -eq 'app-image')
 {
     $AppImageFolderPath = "$DistFolderPath/MiniLPA"
+    Get-ChildItem $DistFolderPath
     Compress-Archive -Path "$AppImageFolderPath/*" -DestinationPath "$DistFolderPath/$Name.zip" -Force
     Remove-Item -Path $AppImageFolderPath -Recurse -Force
 }
