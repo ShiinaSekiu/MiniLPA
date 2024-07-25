@@ -84,6 +84,7 @@ if ($NativeExecutableType -eq 'app-image')
     $AppImageFolderPath = "$DistFolderPath/MiniLPA*"
     Compress-Archive -Path "$AppImageFolderPath/*" -DestinationPath "$DistFolderPath/$Name.zip" -Force
     Remove-Item -Path $AppImageFolderPath -Recurse -Force | Where-Object { $_.PSIsContainer }
+}
 else
 {
     Get-ChildItem -Path $DistFolderPath -File -Filter 'MiniLPA*' | ForEach-Object { Move-Item -Path $_.FullName -Destination "$DistFolderPath$Name$($_.Extension)" -Force }
